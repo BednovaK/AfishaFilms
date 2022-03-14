@@ -1,32 +1,30 @@
 package ru.netology.manager;
 
-import ru.netology.domain.Films;
+import ru.netology.domain.Film;
 
 public class ManagerFilms {
-    Films[] item;
+
     int filmsNumber;
-    int index;
+    private Film[] items = new Film[0];
 
     // конструктор с параметром
     public ManagerFilms(int filmsNumber) {
         this.filmsNumber = filmsNumber;
-         Films[] items = new Films[filmsNumber];
     }
 
 
-    // конструктор без параметра, он вызывает конструктор с параметром 10
+    // конструктор без параметра
     public ManagerFilms() {
-        this(10);
+        this.filmsNumber = 10;
     }
 
-    private Films[] items = new Films[0];
 
 
 //добавить фильм
 
-    public void save(Films item) {
+    public void save(Film item) {
         int length = items.length + 1;
-        Films[] tmp = new Films[length];
+        Film[] tmp = new Film[length];
 
         System.arraycopy(items, 0, tmp, 0, items.length);
         int lastIndex = tmp.length - 1;
@@ -37,18 +35,14 @@ public class ManagerFilms {
 //        Выдать последние 10 добавленных фильмов* (фильмы выдаются в обратном порядке,
 //        т.е. первым в массиве результатов будет тот, который был добавлен последним).
 
-    public Films[] findAll() {
-        return items;
-    }
-
-public Films[] findLast(){
+    public Film[] findLast() {
         int resultLength;
-        if (filmsNumber > 10) {
-            resultLength = 10;
-        } else {
+        if (items.length > filmsNumber) {
             resultLength = filmsNumber;
+        } else {
+            resultLength = items.length;
         }
-        Films[] result = new Films[resultLength];
+        Film[] result = new Film[resultLength];
 
         for (int i = 0; i < resultLength; i++) {
             int index = resultLength - i - 1;
@@ -56,7 +50,6 @@ public Films[] findLast(){
         }
         return result;
     }
-
 
 
 }

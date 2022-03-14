@@ -1,22 +1,22 @@
 package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.domain.Films;
+import ru.netology.domain.Film;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ManagerFilmsTest {
 
-    Films first = new Films(1, "Бладшот", "боевик");
-    Films second = new Films(2, "Вперёд", "мультфильм");
-    Films third = new Films(3, "Отель", "комедия");
-    Films fourth = new Films(4, "Джентельмены", "боевик");
-    Films fifth = new Films(5, "Человек", "ужасы");
-    Films sixth = new Films(6, "Тролли", "мультфильм");
-    Films seventh = new Films(7, "Валли", "мультфильм");
-    Films eighth = new Films(8, "Звонок", "ужасы");
-    Films ninth = new Films(9, "Номер один", "комедия");
-    Films tenth = new Films(10, "Мама", "боевик");
+    Film first = new Film(1, "Бладшот", "боевик");
+    Film second = new Film(2, "Вперёд", "мультфильм");
+    Film third = new Film(3, "Отель", "комедия");
+    Film fourth = new Film(4, "Джентельмены", "боевик");
+    Film fifth = new Film(5, "Человек", "ужасы");
+    Film sixth = new Film(6, "Тролли", "мультфильм");
+    Film seventh = new Film(7, "Валли", "мультфильм");
+    Film eighth = new Film(8, "Звонок", "ужасы");
+    Film ninth = new Film(9, "Номер один", "комедия");
+    Film tenth = new Film(10, "Мама", "боевик");
 
     @Test
     public void shouldAddNewFilm() {
@@ -27,8 +27,8 @@ class ManagerFilmsTest {
 
         manager.save(third);
 
-        Films[] expected = new Films[]{first, second, third};
-        Films[] actual = manager.findAll();
+        Film[] expected = new Film[]{third,second,first};
+        Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
 
@@ -36,7 +36,7 @@ class ManagerFilmsTest {
 
     @Test
     public void shouldFindLast() {
-        ManagerFilms manager = new ManagerFilms(3);
+        ManagerFilms manager = new ManagerFilms();
         manager.save(first);
         manager.save(second);
         manager.save(third);
@@ -44,8 +44,8 @@ class ManagerFilmsTest {
         manager.save(fourth);
 
 
-        Films[] expected = new Films[]{third, second, first};
-        Films[] actual = manager.findLast();
+        Film[] expected = new Film[]{fourth,third, second, first};
+        Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
 
@@ -53,7 +53,7 @@ class ManagerFilmsTest {
 
     @Test
     public void shouldFindLastOver() {
-        ManagerFilms manager = new ManagerFilms(12);
+        ManagerFilms manager = new ManagerFilms(8);
         manager.save(first);
         manager.save(second);
         manager.save(third);
@@ -66,18 +66,16 @@ class ManagerFilmsTest {
         manager.save(tenth);
 
 
-        manager.findLast();
 
-
-        Films[] expected = new Films[]{tenth,ninth,eighth,seventh,sixth,fifth,fourth,third, second, first};
-        Films[] actual = manager.findLast();
+        Film[] expected = new Film[]{eighth,seventh,sixth,fifth,fourth,third, second, first};
+        Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
 
     }
 
     @Test
-    public void shouldAddNewFilmO() {
+    public void shouldAddNewFilmOverLimit() {
         ManagerFilms manager = new ManagerFilms(2);
         manager.save(first);
         manager.save(second);
@@ -85,8 +83,8 @@ class ManagerFilmsTest {
 
         manager.save(third);
 
-        Films[] expected = new Films[]{second,first};
-        Films[] actual = manager.findLast();
+        Film[] expected = new Film[]{second,first};
+        Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
 
