@@ -4,7 +4,7 @@ import ru.netology.domain.Film;
 
 public class ManagerFilms {
 
-    int filmsNumber;
+    private int filmsNumber;
     private Film[] items = new Film[0];
 
     // конструктор с параметром
@@ -17,7 +17,6 @@ public class ManagerFilms {
     public ManagerFilms() {
         this.filmsNumber = 10;
     }
-
 
 
 //добавить фильм

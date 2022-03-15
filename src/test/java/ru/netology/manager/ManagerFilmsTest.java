@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ManagerFilmsTest {
 
+
     Film first = new Film(1, "Бладшот", "боевик");
     Film second = new Film(2, "Вперёд", "мультфильм");
     Film third = new Film(3, "Отель", "комедия");
@@ -27,7 +28,7 @@ class ManagerFilmsTest {
 
         manager.save(third);
 
-        Film[] expected = new Film[]{third,second,first};
+        Film[] expected = new Film[]{third, second, first};
         Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
@@ -44,7 +45,7 @@ class ManagerFilmsTest {
         manager.save(fourth);
 
 
-        Film[] expected = new Film[]{fourth,third, second, first};
+        Film[] expected = new Film[]{fourth, third, second, first};
         Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
@@ -66,8 +67,7 @@ class ManagerFilmsTest {
         manager.save(tenth);
 
 
-
-        Film[] expected = new Film[]{eighth,seventh,sixth,fifth,fourth,third, second, first};
+        Film[] expected = new Film[]{eighth, seventh, sixth, fifth, fourth, third, second, first};
         Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
@@ -83,7 +83,7 @@ class ManagerFilmsTest {
 
         manager.save(third);
 
-        Film[] expected = new Film[]{second,first};
+        Film[] expected = new Film[]{second, first};
         Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
