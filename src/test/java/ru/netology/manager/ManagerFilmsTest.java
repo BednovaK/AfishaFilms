@@ -73,21 +73,5 @@ class ManagerFilmsTest {
         assertArrayEquals(expected, actual);
 
     }
-
-    @Test
-    public void shouldAddNewFilmOverLimit() {
-        ManagerFilms manager = new ManagerFilms(2);
-        manager.save(first);
-        manager.save(second);
-
-
-        manager.save(third);
-
-        Film[] expected = new Film[]{second, first};
-        Film[] actual = manager.findLast();
-
-        assertArrayEquals(expected, actual);
-
-    }
 }
 
