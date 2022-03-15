@@ -54,7 +54,7 @@ class ManagerFilmsTest {
 
     @Test
     public void shouldFindLastOver() {
-        ManagerFilms manager = new ManagerFilms(8);
+        ManagerFilms manager = new ManagerFilms(9);
         manager.save(first);
         manager.save(second);
         manager.save(third);
@@ -67,7 +67,7 @@ class ManagerFilmsTest {
         manager.save(tenth);
 
 
-        Film[] expected = new Film[]{eighth, seventh, sixth, fifth, fourth, third, second, first};
+        Film[] expected = new Film[]{ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
         Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
