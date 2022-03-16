@@ -67,7 +67,7 @@ class ManagerFilmsTest {
         manager.save(tenth);
 
 
-        Film[] expected = new Film[]{ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        Film[] expected = new Film[]{tenth,ninth, eighth, seventh, sixth, fifth, fourth, third, second};
         Film[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
